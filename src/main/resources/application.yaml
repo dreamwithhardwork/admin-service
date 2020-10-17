@@ -15,4 +15,6 @@ automobile:
    kia:
     - seltos
     - sonet
+server:
+  port: 9090
 

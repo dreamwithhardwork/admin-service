@@ -2,6 +2,7 @@ package com.admin.controller;
 
 
 
+import io.swagger.annotations.ApiParam;
 import org.models.core.dao.SearchRepository;
 import org.models.core.dao.VehicleRepository;
 import org.models.core.domain.Vehicle;
@@ -24,28 +25,16 @@ public class CarsController {
     @Autowired
     VehicleRepository autoMobileRepository;
 
-    @Autowired
-    SearchRepository searchRepository;
-
-
-    @Autowired
-    VehicleProperties vehicleProperties;
-
 
     @PostMapping("/add")
-    public Vehicle add(@RequestBody @Valid Vehicle car){
-        return autoMobileRepository.save(car);
+    @ApiParam(allowableValues = "test,you,baby")
+    public Vehicle add(@RequestBody @Valid Vehicle vehicle){
+        return autoMobileRepository.save(vehicle);
     }
 
     @GetMapping
     public List<Vehicle> getAll(){
         return autoMobileRepository.findAll();
-    }
-
-    @DeleteMapping
-    public void  deleteAll()
-    {
-        autoMobileRepository.deleteAll();
     }
 
 
