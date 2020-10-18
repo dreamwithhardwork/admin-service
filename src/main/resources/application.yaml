@@ -34,5 +34,5 @@ automobile:
     - seltos
     - sonet
 server:
-  port: 9090
+  port: 8080
 
