@@ -1,7 +1,3 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://nai:pass@nai-v5nji.gcp.mongodb.net/test?retryWrites=true&w=majority
 make: ford,hyundai,kia,maruthi
 
 automobile:
