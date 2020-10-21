@@ -1,5 +1,4 @@
 make: ford,hyundai,kia,maruthi
-
 automobile:
   make:
     - hyundai
@@ -29,6 +28,3 @@ automobile:
    kia:
     - seltos
     - sonet
-server:
-  port: 8080
-

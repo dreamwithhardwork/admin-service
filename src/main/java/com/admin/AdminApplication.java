@@ -17,6 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableMongoRepositories(basePackages = {"org.models"})
 @ComponentScan(basePackages = {"com.admin,org.models","com.automax"})
 public class AdminApplication {
+
+	public static final String PATH = "/api/v1/admin";
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
 	}
