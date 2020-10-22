@@ -28,3 +28,7 @@ automobile:
    kia:
     - seltos
     - sonet
+debug: true
+logging:
+  console:
+    level: DEBUG
