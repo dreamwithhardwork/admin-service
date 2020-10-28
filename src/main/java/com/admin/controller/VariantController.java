@@ -1,6 +1,7 @@
 package com.admin.controller;
 
 import com.admin.AdminApplication;
+import com.admin.util.Util;
 import org.models.core.dao.VariantRepository;
 import org.models.core.domain.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ public class VariantController {
 
 
     @PostMapping("/add")
-    public Variant add(@RequestBody Variant variant){
+    public Variant add(@RequestBody Variant variant)
+    {
+        variant.set_variantName(Util.generateIdFromUniqueName(
+                variant.getVariantName()+variant.getFromYear()));
         return variantRepository.save(variant);
     }
-
     @GetMapping
     public List<Variant> getAll(){
         return variantRepository.findAll();

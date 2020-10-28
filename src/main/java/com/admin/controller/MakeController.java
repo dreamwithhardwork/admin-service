@@ -2,6 +2,7 @@ package com.admin.controller;
 
 
 import com.admin.AdminApplication;
+import com.admin.util.Util;
 import org.models.core.dao.MakeRepository;
 import org.models.core.domain.Make;
 import org.models.core.enums.MakeType;
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(AdminApplication.PATH+"/makemodel")
-public class MakeModelController {
+@RequestMapping(AdminApplication.PATH+"/make")
+public class MakeController {
 
     @Autowired
     MakeRepository makeRepository;
 
     @PostMapping("/add")
-    public Make add(@RequestBody Make make){
+    public Make add(@RequestBody  Make make){
+        make.set_name(Util.generateIdFromUniqueName(make.getName()+make.getType().name()));
         return makeRepository.save(make);
     }
 
