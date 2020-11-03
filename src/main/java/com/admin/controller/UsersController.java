@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(AdminApplication.PATH+"/registered/users")
+@CrossOrigin(origins = "*")
 public class UsersController {
 
 
@@ -24,13 +25,13 @@ public class UsersController {
         return usersRepository.findAll();
     }
 
-    @GetMapping("/get/{email}")
-    public RegisteredUser getUsernameByEmail(@RequestParam("email") String email){
+    @GetMapping("/email/{email}")
+    public RegisteredUser getUsernameByEmail(@PathVariable("email") String email){
         return usersRepository.findOneByEmail(email);
     }
 
-    @GetMapping("/get/{mobile}")
-    public RegisteredUser getUsernameByMobile(@RequestParam("mobile") String mobile){
+    @GetMapping("/mobile/{mobile}")
+    public RegisteredUser getUsernameByMobile(@PathVariable("mobile") String mobile){
         return usersRepository.findOneByMobile(mobile);
     }
 
