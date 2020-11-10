@@ -21,6 +21,7 @@ public class UsersController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @GetMapping("/all")
     public List<RegisteredUser> getAllUsers(){
         return usersRepository.findAll();
     }

@@ -21,7 +21,13 @@ public class MakeController {
     @PostMapping("/add")
     public Make add(@RequestBody  Make make){
         make.set_name(Util.generateIdFromUniqueName(make.getName()+make.getType().name()));
-        return makeRepository.save(make);
+        Make resp = null;
+        try{
+           resp =  makeRepository.save(make);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return resp;
     }
 
     @GetMapping("/all")
