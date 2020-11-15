@@ -26,7 +26,7 @@ public class ModelController {
         return modelRepository.save(model);
     }
 
-    @GetMapping("/make/{name}")
+    @GetMapping
     public List<Model> getAll(@RequestParam("make") String make){
         return modelRepository.findByMake(make);
     }
