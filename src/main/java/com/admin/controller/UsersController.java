@@ -36,20 +36,28 @@ public class UsersController {
         return usersRepository.findOneByMobile(mobile);
     }
 
-    @DeleteMapping("/delete/{mobile}")
+    @DeleteMapping("/delete/mobile{mobile}")
     public Boolean deleteUserByMobile(@PathVariable("mobile") String mobile){
         usersRepository.delete(usersRepository.findOneByMobile(mobile));
         return  true;
     }
 
-    @DeleteMapping("/delete/{email}")
+    @DeleteMapping("/delete/email/{email}")
     public Boolean deleteUserByemail(@PathVariable("email") String email){
         usersRepository.delete(usersRepository.findOneByMobile(email));
         return  true;
     }
 
+    @DeleteMapping("/delete/id/{id}")
+    public Boolean deleteUserById(@PathVariable("id") String id){
+        usersRepository.deleteById(id);
+        return  true;
+    }
+
     @PostMapping("/add")
     public RegisteredUser addUser(@RequestBody RegisteredUser user){
+        String password = user.getName()+"!@#$%^";
+        user.setPassword(password);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return usersRepository.save(user);
     }
