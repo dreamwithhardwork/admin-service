@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(AdminApplication.PATH+"/variant")
@@ -28,6 +29,12 @@ public class VariantController {
     @GetMapping
     public List<Variant> getAll(){
         return variantRepository.findAll();
+    }
+
+    @GetMapping
+    public Variant getVariantById(@RequestParam("id") String id){
+        Optional<Variant> res = variantRepository.findById(id);
+        return res.get();
     }
 
     @DeleteMapping
