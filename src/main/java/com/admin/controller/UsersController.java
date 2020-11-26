@@ -56,7 +56,7 @@ public class UsersController {
 
     @PostMapping("/add")
     public RegisteredUser addUser(@RequestBody RegisteredUser user){
-        String password = user.getName()+"!@#$%^";
+        String password = user.getName()+"!@";
         user.setPassword(password);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return usersRepository.save(user);
