@@ -27,5 +27,11 @@ public class PropertiesController {
         return availableCarPropertiesRepository.findAll();
     }
 
+    @DeleteMapping("/delete")
+    public Boolean delete(@RequestParam(name = "id", required = true) String id){
+          availableCarPropertiesRepository.deleteById(id);
+          return true;
+    }
+
 
 }
