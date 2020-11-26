@@ -26,7 +26,7 @@ public class VariantController {
                 variant.getVariantName()+variant.getFromYear()));
         return variantRepository.save(variant);
     }
-    @GetMapping
+    @GetMapping("/all")
     public List<Variant> getAll(){
         return variantRepository.findAll();
     }
