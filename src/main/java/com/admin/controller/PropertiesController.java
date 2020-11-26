@@ -2,7 +2,7 @@ package com.admin.controller;
 
 import com.admin.AdminApplication;
 import org.models.core.dao.AvailableCarPropertiesRepository;
-import org.models.core.domain.AvailableCarProperties;
+import org.models.core.domain.Specification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +18,12 @@ public class PropertiesController {
 
 
     @PostMapping("/add/car")
-    public AvailableCarProperties add(@RequestBody  AvailableCarProperties availableCarProperties){
+    public Specification add(@RequestBody  Specification availableCarProperties){
         return   availableCarPropertiesRepository.save(availableCarProperties);
     }
 
     @GetMapping("/get/car")
-    public List<AvailableCarProperties> get(){
+    public List<Specification> get(){
         return availableCarPropertiesRepository.findAll();
     }
 
