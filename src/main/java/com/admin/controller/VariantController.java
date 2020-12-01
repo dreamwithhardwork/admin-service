@@ -31,6 +31,11 @@ public class VariantController {
         return variantRepository.findAll();
     }
 
+    @GetMapping("/get")
+    public List<Variant> getAllVariantsByMakeAndModel(@RequestParam("make") String make, @RequestParam("model") String model){
+        return variantRepository.findByMakeAndModel(make,model);
+    }
+
     @GetMapping
     public Variant getVariantById(@RequestParam("id") String id){
         Optional<Variant> res = variantRepository.findById(id);
