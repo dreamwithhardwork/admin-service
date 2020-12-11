@@ -3,6 +3,7 @@ package com.admin.controller;
 
 import com.admin.AdminApplication;
 import com.admin.util.Util;
+import org.models.core.dao.CustomRepositories;
 import org.models.core.dao.MakeRepository;
 import org.models.core.dao.ModelRepository;
 import org.models.core.domain.Make;
@@ -20,6 +21,9 @@ public class ModelController {
     @Autowired
     ModelRepository modelRepository;
 
+    @Autowired
+    CustomRepositories customRepositories;
+
     @PostMapping("/add")
     public Model add(@RequestBody Model model){
         model.set_idname(Util.generateIdFromUniqueName(model.getName()));
@@ -33,7 +37,7 @@ public class ModelController {
 
     @GetMapping("/all")
     public List<Model> getMakeByName(){
-        return modelRepository.findAll();
+        return customRepositories.getAllModels();
     }
 
     @DeleteMapping("/delete")
