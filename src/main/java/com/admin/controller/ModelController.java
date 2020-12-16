@@ -8,6 +8,7 @@ import org.models.core.dao.MakeRepository;
 import org.models.core.dao.ModelRepository;
 import org.models.core.domain.Make;
 import org.models.core.domain.Model;
+import org.models.core.domain.ModelsFilter;
 import org.models.core.enums.MakeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,11 @@ public class ModelController {
     @GetMapping("/all")
     public List<Model> getMakeByName(){
         return customRepositories.getAllModels();
+    }
+
+    @PutMapping
+    public List<Model> getAllModels(@RequestBody ModelsFilter filter){
+        return customRepositories.getAllModels(filter);
     }
 
     @DeleteMapping("/delete")
