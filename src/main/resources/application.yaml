@@ -32,3 +32,13 @@ debug: false
 logging:
   console:
     level: DEBUG
+spring:
+  data:
+    mongodb:
+      uri: ${DATA_SOURCE}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiry: 123456
+
+

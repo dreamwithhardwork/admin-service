@@ -19,11 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableMongoRepositories(basePackages = {"org.models"})
-@ComponentScan(basePackages = {"com.admin,org.models","com.automax"})
+@ComponentScan(basePackages = {"com.admin","org.models","com.automax"})
 @CrossOrigin(origins = "*")
 public class AdminApplication {
 
-	public static final String PATH = "/api/v1/admin";
+	public static final String PATH = "/api/v1/admin1";
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
 	}

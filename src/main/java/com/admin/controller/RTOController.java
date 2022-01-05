@@ -23,7 +23,7 @@ public class RTOController {
 
     @GetMapping("/getAll")
     public List<RTO> getAll(@RequestParam("operating") Optional<Boolean> operating){
-        return operating.isEmpty()?rtoRepository.findAll():rtoRepository.findByOperating(operating.get());
+        return operating.isPresent()?rtoRepository.findAll():rtoRepository.findByOperating(operating.get());
     }
 
     @DeleteMapping
